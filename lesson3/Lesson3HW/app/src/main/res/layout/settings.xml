@@ -11,6 +11,8 @@
     android:id="@+id/layout"
     android:orientation="vertical">
 
+    <!-- I'm getting warnings that say layout_below is invalid for LinearLayouts. Look into other
+    layouts!-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
