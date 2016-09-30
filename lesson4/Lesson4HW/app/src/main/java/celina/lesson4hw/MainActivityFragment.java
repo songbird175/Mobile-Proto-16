@@ -46,14 +46,14 @@ public class MainActivityFragment extends Fragment {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("MainActivityFragment", "Hi, I'm a log");
+                createDialog(listView);
             }
         });
 
         return view;
     }
 
-    private void createDialog(final TextView t) {
+    private void createDialog(final ListView t) {
         // create an AlertDialog that'll come up when text is clicked
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(
                 getActivity());
@@ -71,7 +71,7 @@ public class MainActivityFragment extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 // what happens if you press the OK button
                 String textInput = input.getText().toString(); //saves user text as a string
-                t.setText(textInput); //updates the item text to be the string established in the line above
+                input.setText(textInput); //updates the item text to be the string established in the line above
             }
         });
         alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
