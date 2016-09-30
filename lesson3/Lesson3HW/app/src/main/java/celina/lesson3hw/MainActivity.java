@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
             //creates the first fragment dynamically, so it can be replaced
             Fragment firstFragment = new MainActivityFragment();
             firstFragment.setArguments(getIntent().getExtras());
+
+			// Nicely done!
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.fragment_container, firstFragment).commit();
         }
