@@ -22,12 +22,6 @@ import butterknife.ButterKnife;
  */
 public class MainActivityFragment extends Fragment {
 
-    // 5 separate list items
-    /* @BindView(R.id.originalText) TextView first;
-    @BindView(R.id.originalText2) TextView second;
-    @BindView(R.id.originalText3) TextView third;
-    @BindView(R.id.originalText4) TextView fourth;
-    @BindView(R.id.originalText5) TextView fifth; */
     @BindView(R.id.lvUsers) ListView listView;
 
     public MainActivityFragment() {
@@ -47,50 +41,6 @@ public class MainActivityFragment extends Fragment {
 
         return view;
     }
-
-        /*first.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-
-                createDialog(first);
-            }
-        });
-
-        second.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-
-                createDialog(second);
-            }
-        });
-
-        third.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-
-                createDialog(third);
-            }
-        });
-
-        fourth.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-
-                createDialog(fourth);
-            }
-        });
-
-        fifth.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-
-                createDialog(fifth);
-            }
-
-        });
-
-        return view;
-    }*/
 
     private void createDialog(final TextView t) {
         // create an AlertDialog that'll come up when text is clicked
