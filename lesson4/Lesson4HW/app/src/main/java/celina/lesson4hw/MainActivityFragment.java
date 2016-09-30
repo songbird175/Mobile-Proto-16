@@ -5,9 +5,11 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,6 +24,7 @@ import butterknife.ButterKnife;
  */
 public class MainActivityFragment extends Fragment {
 
+    // @BindView(R.id.originalText) TextView first;
     @BindView(R.id.lvUsers) ListView listView;
 
     public MainActivityFragment() {
@@ -38,6 +41,14 @@ public class MainActivityFragment extends Fragment {
         CustomUsersAdapter adapter = new CustomUsersAdapter(getContext(), arrayOfUsers);
         // Attach the adapter to a ListView
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("MainActivityFragment", "Hi, I'm a log");
+            }
+        });
 
         return view;
     }
