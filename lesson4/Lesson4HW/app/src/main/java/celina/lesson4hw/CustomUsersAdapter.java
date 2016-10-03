@@ -69,7 +69,9 @@ public class CustomUsersAdapter extends ArrayAdapter<User> {
         alertDialog.setView(input);
 
         // set up buttons
+
         alertDialog.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String textInput = input.getText().toString(); //saves user text as a string
