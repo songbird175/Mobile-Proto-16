@@ -24,7 +24,6 @@ import butterknife.ButterKnife;
  */
 public class MainActivityFragment extends Fragment {
 
-    // @BindView(R.id.originalText) TextView first;
     @BindView(R.id.lvUsers) ListView listView;
 
     public MainActivityFragment() {
@@ -36,54 +35,17 @@ public class MainActivityFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
 
-        ArrayList<User> arrayOfUsers = User.getUsers();
+        ArrayList<User> arrayOfUsers = new ArrayList<>();
+        arrayOfUsers.add(new User("Person 1", "Hometown 1"));
+        arrayOfUsers.add(new User("Person 2", "Hometown 2"));
+        arrayOfUsers.add(new User("Person 3", "Hometown 3"));
+        arrayOfUsers.add(new User("Person 4", "Hometown 4"));
+        arrayOfUsers.add(new User("Person 5", "Hometown 5"));
         // Create the adapter to convert the array to views
         CustomUsersAdapter adapter = new CustomUsersAdapter(getContext(), arrayOfUsers);
         // Attach the adapter to a ListView
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("MainActivityFragment", "Hi, I'm a log");
-            }
-        });
-
         return view;
     }
-
-    private void createDialog(final TextView t) {
-        // create an AlertDialog that'll come up when text is clicked
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(
-                getActivity());
-
-        // set title
-        alertDialog.setTitle("Edit item");
-
-        final EditText input = new EditText(getActivity()); //uses the EditText from dialog_set
-        input.setInputType(InputType.TYPE_CLASS_TEXT); //makes the dialog ask for plain text input
-        alertDialog.setView(input);
-
-        // set up buttons
-        alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // what happens if you press the OK button
-                String textInput = input.getText().toString(); //saves user text as a string
-                t.setText(textInput); //updates the item text to be the string established in the line above
-            }
-        });
-        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-
-        // show it
-        alertDialog.show();
-    }
-
-
 }

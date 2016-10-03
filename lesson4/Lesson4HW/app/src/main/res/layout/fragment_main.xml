@@ -20,48 +20,4 @@
 
     </ListView>
 
-    <!--
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/item"
-        android:id="@+id/originalText"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/item"
-        android:id="@+id/originalText2"
-        android:layout_below="@+id/originalText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/item"
-        android:id="@+id/originalText3"
-        android:layout_below="@+id/originalText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/item"
-        android:id="@+id/originalText4"
-        android:layout_below="@+id/originalText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/item"
-        android:id="@+id/originalText5"
-        android:layout_below="@+id/originalText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
-        -->
-
 </RelativeLayout>
