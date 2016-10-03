@@ -13,12 +13,4 @@ public class User {
         this.name = name;
         this.hometown = hometown;
     }
-
-    public static ArrayList<User> getUsers() {
-        ArrayList<User> users = new ArrayList<User>();
-        users.add(new User("Harry", "San Diego"));
-        users.add(new User("Marla", "San Francisco"));
-        users.add(new User("Sarah", "San Marco"));
-        return users;
-    }
 }
