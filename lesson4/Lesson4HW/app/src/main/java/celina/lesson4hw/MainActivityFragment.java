@@ -37,6 +37,10 @@ public class MainActivityFragment extends Fragment {
 
         ArrayList<User> arrayOfUsers = new ArrayList<>();
         arrayOfUsers.add(new User("Person 1", "Hometown 1"));
+        arrayOfUsers.add(new User("Person 2", "Hometown 2"));
+        arrayOfUsers.add(new User("Person 3", "Hometown 3"));
+        arrayOfUsers.add(new User("Person 4", "Hometown 4"));
+        arrayOfUsers.add(new User("Person 5", "Hometown 5"));
         // Create the adapter to convert the array to views
         CustomUsersAdapter adapter = new CustomUsersAdapter(getContext(), arrayOfUsers);
         // Attach the adapter to a ListView

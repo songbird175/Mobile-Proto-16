@@ -69,13 +69,25 @@ public class CustomUsersAdapter extends ArrayAdapter<User> {
         alertDialog.setView(input);
 
         // set up buttons
-        alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+        alertDialog.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String textInput = input.getText().toString(); //saves user text as a string
                 users.get(position).name = textInput;
+                notifyDataSetChanged();
             }
         });
+
+        alertDialog.setNeutralButton("Complete", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                users.get(position).hometown = "Complete";
+                notifyDataSetChanged();
+            }
+        });
+
         alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
