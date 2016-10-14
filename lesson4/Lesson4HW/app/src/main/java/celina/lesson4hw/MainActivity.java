@@ -19,9 +19,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-//    ArrayList<User> user;
-//    protected CustomUsersAdapter adapter = new CustomUsersAdapter(MainActivity.this, user);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) { //initialize the activity
         super.onCreate(savedInstanceState);
@@ -52,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void createDialog() {
         ArrayList<User> user = new ArrayList<User>();
-        final CustomUsersAdapter adapter = new CustomUsersAdapter(MainActivity.this, user);
+        final CustomUsersAdapter adapter = new CustomUsersAdapter(MainActivity.this, user); //updates don't save, I think because this has to be final
 
         // create an AlertDialog that'll come up when text is clicked
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
