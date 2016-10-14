@@ -14,7 +14,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+
+//    ArrayList<User> user;
+//    protected CustomUsersAdapter adapter = new CustomUsersAdapter(MainActivity.this, user);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) { //initialize the activity
@@ -39,12 +45,15 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                createDialog(0); //need to figure out what position to give it
+                createDialog();
             }
         });
     }
 
-    private void createDialog(final int position) {
+    private void createDialog() {
+        ArrayList<User> user = new ArrayList<User>();
+        final CustomUsersAdapter adapter = new CustomUsersAdapter(MainActivity.this, user);
+
         // create an AlertDialog that'll come up when text is clicked
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
 
@@ -62,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 String textInput = input.getText().toString(); //saves user text as a string
-//                users.get(position).name = textInput; //needs to add to the arrayadapter
-//                notifyDataSetChanged();
+                adapter.add(textInput);
+                adapter.notifyDataSetChanged();
             }
         });
 
