@@ -1,14 +1,21 @@
 package celina.lesson4hw;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,10 +42,46 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                createDialog();
             }
         });
+    }
+
+    private void createDialog() {
+        ArrayList<User> user = new ArrayList<User>();
+        final CustomUsersAdapter adapter = new CustomUsersAdapter(MainActivity.this, user); //updates don't save, I think because this has to be final
+
+        // create an AlertDialog that'll come up when text is clicked
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+
+        // set title
+        alertDialog.setTitle("Edit item");
+
+        final EditText input = new EditText(MainActivity.this); //uses the EditText from dialog_set
+        input.setInputType(InputType.TYPE_CLASS_TEXT); //makes the dialog ask for plain text input
+        alertDialog.setView(input);
+
+        // set up buttons
+
+        alertDialog.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String textInput = input.getText().toString(); //saves user text as a string
+                adapter.add(textInput);
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        // show it
+        alertDialog.show();
     }
 
 

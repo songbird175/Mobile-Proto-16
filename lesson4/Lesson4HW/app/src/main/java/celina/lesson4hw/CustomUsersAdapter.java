@@ -56,6 +56,10 @@ public class CustomUsersAdapter extends ArrayAdapter<User> {
         return convertView;
     }
 
+    protected void add(String textInput) {
+        add(new User(textInput, "Incomplete"));
+    }
+
     private void createDialog(final int position) {
         // create an AlertDialog that'll come up when text is clicked
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(

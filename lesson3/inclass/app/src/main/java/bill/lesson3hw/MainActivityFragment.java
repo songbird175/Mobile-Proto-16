@@ -1,5 +1,6 @@
 package bill.lesson3hw;
 
+import android.support.annotation.VisibleForTesting;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,6 +18,7 @@ public class MainActivityFragment extends Fragment {
     public MainActivityFragment() {
     }
 
+    @VisibleForTesting
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
