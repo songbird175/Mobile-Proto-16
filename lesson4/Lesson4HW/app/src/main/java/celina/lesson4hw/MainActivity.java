@@ -9,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) { //initialize the activity
@@ -44,44 +47,42 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 createDialog();
             }
-        });
-    }
 
-    private void createDialog() {
-        ArrayList<User> user = new ArrayList<User>();
-        final CustomUsersAdapter adapter = new CustomUsersAdapter(MainActivity.this, user); //updates don't save, I think because this has to be final
+            private void createDialog() {
+                ArrayList<User> users = new ArrayList<User>();
 
-        // create an AlertDialog that'll come up when text is clicked
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+                // create an AlertDialog that'll come up when the add button is clicked
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
 
-        // set title
-        alertDialog.setTitle("Edit item");
+                // set title
+                alertDialog.setTitle("Add item");
 
-        final EditText input = new EditText(MainActivity.this); //uses the EditText from dialog_set
-        input.setInputType(InputType.TYPE_CLASS_TEXT); //makes the dialog ask for plain text input
-        alertDialog.setView(input);
+                final EditText input = new EditText(MainActivity.this); //uses the EditText from dialog_set
+                input.setInputType(InputType.TYPE_CLASS_TEXT); //makes the dialog ask for plain text input
+                alertDialog.setView(input);
 
-        // set up buttons
+                // set up buttons
 
-        alertDialog.setPositiveButton("Save", new DialogInterface.OnClickListener() {
+                alertDialog.setPositiveButton("Save", new DialogInterface.OnClickListener() {
 
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String textInput = input.getText().toString(); //saves user text as a string
-                adapter.add(textInput);
-                adapter.notifyDataSetChanged();
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String textInput = input.getText().toString(); //saves user text as a string
+                        Log.d(TAG, textInput); // records input as a log
+                    }
+                });
+
+                alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                // show it
+                alertDialog.show();
             }
         });
-
-        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-
-        // show it
-        alertDialog.show();
     }
 
 

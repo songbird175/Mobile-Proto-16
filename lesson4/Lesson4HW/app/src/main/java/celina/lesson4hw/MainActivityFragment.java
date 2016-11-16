@@ -35,7 +35,7 @@ public class MainActivityFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.bind(this, view);
 
-        ArrayList<User> arrayOfUsers = new ArrayList<>();
+        ArrayList<User> arrayOfUsers = new ArrayList<User>();
         arrayOfUsers.add(new User("Person 1", "Hometown 1"));
         arrayOfUsers.add(new User("Person 2", "Hometown 2"));
         arrayOfUsers.add(new User("Person 3", "Hometown 3"));
